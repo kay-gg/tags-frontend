@@ -56,15 +56,7 @@ impl Sandbox for App {
 				.width(Length::Fill)
 				.into()
 		})).spacing(10).padding(5);
-
-		// let tag_bar = column((0..tagnames.len()).map(|i| { 
-		// 	// horizontal alignment isnt doing anything....
-		// 	button(text(format!("{}", tagnames[i])).horizontal_alignment(iced::alignment::Horizontal::Center))
-		// 		.width(Length::Fill)
-		// 		.on_press(Message::TagClicked)
-		// 		.into()
-		// })).spacing(10).padding(5).align_items(iced::Alignment::Center).width(Length::Fill);
-
+		
 		let file_bar = column((0..self.files.len()).map(|i| text(format!("{}", self.files[i])).into())).spacing(10);
 		
 		let top_half = row![
