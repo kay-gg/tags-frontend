@@ -2329,7 +2329,7 @@ dependencies = [
 [[package]]
 name = "tag_fs"
 version = "0.1.0"
-source = "git+https://github.com/kay-gg/tagging_fs#879bac9ed1767722c7dc805eb0452c9e6dbae153"
+source = "git+https://github.com/kay-gg/tagging_fs#f733db5b642f8d1905ee407de7bb95389198f65c"
 dependencies = [
  "serde",
  "serde_json",
