@@ -40,13 +40,18 @@ impl Sandbox for App {
 		}
 	}
 	fn view(&self) -> Element<'_, Self::Message> {
-		let xx = column((0..100).map(|i| text(format!("{} vertical scrollable", i + 1)).into()));
-		let xy = column((0..100).map(|i| text(format!("{} vertical scrollable", i + 1)).into()));
+
+		let tagnames = self.tags.return_tags().unwrap();
+		let filenames = self.tags.return_files().unwrap();
+
+		let tag_bar = column((0..tagnames.len()).map(|i| text(format!("{}", tagnames[i])).into())).spacing(10);
+		let file_bar = column((0..filenames.len()).map(|i| text(format!("{}", filenames[i])).into())).spacing(10);
+		
 		let top_half = row![
-			Scrollable::new(xx)
+			Scrollable::new(tag_bar)
 				.width(230).height(Length::Fill)
-				.direction(Direction::Vertical(Properties::new())), // change .style() of these 	
-			Scrollable::new(xy)
+				.direction(Direction::Vertical(Properties::new())), // change .style() of these 
+			Scrollable::new(file_bar)
 				.width(Length::Fill).height(Length::Fill)
 				.direction(Direction::Vertical(Properties::new())),
 		]
